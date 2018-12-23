@@ -22,18 +22,6 @@ var app = angular.module('myApp', ['ngOidc'], function($auth) {
 );
 ```
 
-## Methods
-
-### SignIn
-
-Redirects the user to the configured IpP. The URL to the login screen is constructed based on the configuration made.
-
-**Samples**
-```javascript
- $auth.signinRedirect();
-```
-
-
 # Sample
 
 There is a sample in the `sample`-Folder.

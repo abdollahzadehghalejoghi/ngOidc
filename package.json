@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "start": "http-server ./sample -a localhost -p 5002 -c-1"
+    "start": "http-server ./sample -a localhost -p 5000 -c-1"
   },
   "keywords": [
     "angular",
