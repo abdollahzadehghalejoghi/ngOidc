@@ -4,7 +4,7 @@ Library to provide OpenID Connect (OIDC) and OAuth2 protocol support for client-
 ## Getting started
 To install ngOidc use npm
 ```
-npm install ngOidc --save
+npm install ng-oidc --save
 ```
 
 Inject the `$auth`-provider to setup the library while configuring your angular-application
