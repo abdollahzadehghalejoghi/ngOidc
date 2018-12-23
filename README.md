@@ -24,9 +24,10 @@ var app = angular.module('myApp', ['ngOidc'], function($auth) {
 
 # Sample
 
-There is a sample in the `sample`-Folder.
+There is a sample in the `sample` Folder.
 
 ## SignIn Method Sample
+Redirects the user to OpenId Page.
 ```javascript
  $auth.signinRedirect();
 ```
