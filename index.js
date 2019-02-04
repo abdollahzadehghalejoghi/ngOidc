@@ -93,7 +93,7 @@
 
 
                     var handleRedirectCallback = function (data) {
-                        var oidc = new Oidc.UserManager({ loadUserInfo: true, filterProtocolClaims: true });
+                      var oidc = new Oidc.UserManager(config);
                         oidc.signinRedirectCallback(data).then(function (user) {
                             window.history.replaceState({},
                                 window.document.title,
@@ -103,12 +103,12 @@
                     };
 
                     var handlePopupCallback = function (data) {
-                        var oidc = new Oidc.UserManager();
+                        var oidc = new Oidc.UserManager(config);
                         oidc.signinPopupCallback(data);
                     };
 
                     var handleSilentCallback = function (data) {
-                        var oidc = new Oidc.UserManager();
+                        var oidc = new Oidc.UserManager(config);
                         oidc.signinPopupCallback(data);
                     };
 
