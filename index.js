@@ -45,7 +45,6 @@
             console.debug('ngOidc: Callback Routes Registered.');
         }])
 
-
         .provider("$auth", function () {
 
             // Default configuration
@@ -53,7 +52,7 @@
                 authority: null,
                 client_id: null,
                 redirect_uri: (window.location.origin || window.location.protocol + '//' + window.location.host) + window.location.pathname + '#!/auth/callback/',
-
+                redirectCallback: (window.location.origin || window.location.protocol + '//' +   window.location.host) + window.location.pathname,
                 post_logout_redirect_uri: window.location.origin,
 
                 // if we choose to use popup window instead for logins
@@ -94,11 +93,11 @@
 
                     var handleRedirectCallback = function (data) {
                       var oidc = new Oidc.UserManager(config);
-                        oidc.signinRedirectCallback(data).then(function (user) {
+                        oidc.signinRedirectCallback(data).then(function () {
                             window.history.replaceState({},
                                 window.document.title,
                                 window.location.origin + window.location.pathname);
-                            window.location = (window.location.origin || window.location.protocol + '//' + window.location.host) + window.location.pathname;
+                          window.location = config.redirectCallback;
                         });
                     };
 
@@ -126,7 +125,7 @@
                             var oidc = new Oidc.UserManager(config);
                             oidc.signinRedirect({ scope: config.scope, response_type: config.response_type });
                         },
-
+      
                         signinPopup: function () {
                             var oidc = new Oidc.UserManager(config);
                             oidc.signinPopup({ scope: config.scope, response_type: config.response_type }).then(function () {

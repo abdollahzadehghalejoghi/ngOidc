@@ -60,6 +60,9 @@ app.config(function ($authProvider) {
     redirect_uri: (window.location.origin || window.location.protocol + '//' + window.location.host) + window.location.pathname + '#!/auth/callback/',
     post_logout_redirect_uri: window.location.origin,
 
+    // For Custom CallbackUrl
+    // redirectCallback: "https://www.google.com/"
+
     // For Config Storage
     // The userStore needs to implement this "interface": https://github.com/IdentityModel/oidc-client-js/blob/dev/src/WebStorageStateStore.js
     // import { WebStorageStateStore } from "oidc-client";
