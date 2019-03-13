@@ -3,11 +3,12 @@ var app = angular.module('Oidc', ['ngOidc']);
 
 app.controller("Ctrl", function ($auth) {
 
-  document.querySelector(".request").addEventListener("click", login, false);
+  document.querySelector(".login").addEventListener("click", login, false);
 
   function login() {
     $auth.signinRedirect();
     // $auth.signinPopup();
+    // $auth.signinSilent();
   }
 
   document.querySelector(".get").addEventListener("click", get, false);
@@ -16,7 +17,6 @@ app.controller("Ctrl", function ($auth) {
     $auth.getUser().then(function (user) {
       console.log(user);
     });;
-
   }
 
   document.querySelector(".removeUser").addEventListener("click", removeUser, false);
@@ -25,16 +25,28 @@ app.controller("Ctrl", function ($auth) {
     $auth.removeUser();
   }
 
-  document.querySelector(".revoke").addEventListener("click", revoke, false);
+  document.querySelector(".revokeAccessToken").addEventListener("click", revokeAccessToken, false);
 
-  function revoke() {
-    $auth.revoke();
+  function revokeAccessToken() {
+    $auth.revokeAccessToken();
   }
 
-  document.querySelector(".logout").addEventListener("click", logout, false);
+  document.querySelector(".signoutRedirect").addEventListener("click", signoutRedirect, false);
 
-  function logout() {
-    $auth.logout();
+  function signoutRedirect() {
+    $auth.signoutRedirect();
+  }
+
+  document.querySelector(".querySessionStatus").addEventListener("click", querySessionStatus, false);
+
+  function querySessionStatus() {
+    $auth.querySessionStatus();
+  }
+
+  document.querySelector(".clearStaleState").addEventListener("click", clearStaleState, false);
+
+  function clearStaleState() {
+    $auth.clearStaleState();
   }
 
 
