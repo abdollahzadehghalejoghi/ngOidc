@@ -7,11 +7,11 @@ To install ngOidc use npm
 npm install ng-oidc --save
 ```
 
-Inject the `$auth`-provider to setup the library while configuring your angular-application
+Inject the `$oidc`-provider to setup the library while configuring your angular-application
 
 ```javascript
-var app = angular.module('myApp', ['ngOidc'], function($auth) {
-  $auth.configure(
+var app = angular.module('myApp', ['ngOidc'], function($oidc) {
+  $oidc.configure(
     {
       authority: 'http://....',
       client_id: 'abcd...',
@@ -29,13 +29,13 @@ There is a sample in the `sample` Folder.
 ## SignIn Method Sample
 Redirects the user to OpenId Page.
 ```javascript
- $auth.signinRedirect();
+ $oidc.signinRedirect();
 ```
 
 ## UserSignedOut Event Sample
 Data Is A Function To Run For Event.
 ```javascript
- $auth.addUserSignedOut(data);
+ $oidc.addUserSignedOut(data);
 ```
 
 ## Running the Sample
