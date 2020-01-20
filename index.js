@@ -22,11 +22,11 @@
             url: "/callback/{data}",
             template: "",
             controller: [
-              "$auth",
+              "$oidc",
               "$stateParams",
-              function($auth, $stateParams) {
+              function($oidc, $stateParams) {
                 console.debug("ngOidc: Handling Redirect Callback");
-                $auth.handleRedirectCallback($stateParams.data);
+                $oidc.handleRedirectCallback($stateParams.data);
               }
             ]
           })
@@ -34,11 +34,11 @@
             url: "/popup/{data}",
             template: "",
             controller: [
-              "$auth",
+              "$oidc",
               "$stateParams",
-              function($auth, $stateParams) {
+              function($oidc, $stateParams) {
                 console.debug("ngOidc: Handling Popup Callback");
-                $auth.handlePopupCallback($stateParams.data);
+                $oidc.handlePopupCallback($stateParams.data);
               }
             ]
           })
@@ -46,11 +46,11 @@
             url: "/silent/{data}",
             template: "",
             controller: [
-              "$auth",
+              "$oidc",
               "$stateParams",
-              function($auth, $stateParams) {
+              function($oidc, $stateParams) {
                 console.debug("ngOidc: Handling Silent Callback");
-                $auth.handleSilentCallback($stateParams.data);
+                $oidc.handleSilentCallback($stateParams.data);
               }
             ]
           });
@@ -59,7 +59,7 @@
       }
     ])
 
-    .provider("$auth", function() {
+    .provider("$oidc", function() {
       // Default configuration
       var config = {
         authority: null,

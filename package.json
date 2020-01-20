@@ -1,6 +1,6 @@
 {
   "name": "ng-oidc",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "OpenID Connect (OIDC) & OAuth2 client library For AngularJS",
   "license": "MIT",
   "repository": "A20Group/ngOidc",

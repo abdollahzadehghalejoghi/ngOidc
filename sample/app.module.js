@@ -1,20 +1,20 @@
 'use strict';
 var app = angular.module('Oidc', ['ngOidc']);
 
-app.controller("Ctrl", function ($auth) {
+app.controller("Ctrl", function ($oidc) {
 
   document.querySelector(".login").addEventListener("click", login, false);
 
   function login() {
-    $auth.signinRedirect();
-    // $auth.signinPopup();
-    // $auth.signinSilent();
+    $oidc.signinRedirect();
+    // $oidc.signinPopup();
+    // $oidc.signinSilent();
   }
 
   document.querySelector(".get").addEventListener("click", get, false);
 
   function get() {
-    $auth.getUser().then(function (user) {
+    $oidc.getUser().then(function (user) {
       console.log(user);
     });;
   }
@@ -22,41 +22,41 @@ app.controller("Ctrl", function ($auth) {
   document.querySelector(".removeUser").addEventListener("click", removeUser, false);
 
   function removeUser() {
-    $auth.removeUser();
+    $oidc.removeUser();
   }
 
   document.querySelector(".revokeAccessToken").addEventListener("click", revokeAccessToken, false);
 
   function revokeAccessToken() {
-    $auth.revokeAccessToken();
+    $oidc.revokeAccessToken();
   }
 
   document.querySelector(".signoutRedirect").addEventListener("click", signoutRedirect, false);
 
   function signoutRedirect() {
-    $auth.signoutRedirect();
+    $oidc.signoutRedirect();
   }
 
   document.querySelector(".querySessionStatus").addEventListener("click", querySessionStatus, false);
 
   function querySessionStatus() {
-    $auth.querySessionStatus();
+    $oidc.querySessionStatus();
   }
 
   document.querySelector(".clearStaleState").addEventListener("click", clearStaleState, false);
 
   function clearStaleState() {
-    $auth.clearStaleState();
+    $oidc.clearStaleState();
   }
 
 
 
   var data = function () {
     console.log("Event UserSignedOut");
-    $auth.logout();
+    $oidc.logout();
   }
 
-  $auth.addUserSignedOut(data);
+  $oidc.addUserSignedOut(data);
 
 });
 
